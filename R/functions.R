@@ -488,7 +488,7 @@ parse_msgf_mzid = function(mzid_path){
               ## In case of MSGF+, the means to remove 'XXX_' in the protein_id
               protein_id = str_replace(protein_id, '(XXX_)',''),
               score= MS.GF.SpecEValue,
-              database = gsub(".*/+([^/]+).fasta","\\1",levels(mzR::database(d)[['location']])),
+              database = gsub(".*/+([^/]+).fasta","\\1",mzR::database(d)[['location']]),
               decoy = isDecoy,
 ## divide number of sequences by 2 (decoys + targets by default)
               database_size = mzR::database(d)$numDatabaseSequences / 2) %>%
